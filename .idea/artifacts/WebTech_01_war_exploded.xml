@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="WebTech-01:war exploded">
+    <output-path>/usr/local/Cellar/tomcat/9.0.27/libexec/webapps/WebTech_01</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="WebTech-01/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="WebTech-01" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

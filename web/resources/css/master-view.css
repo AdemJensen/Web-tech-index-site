@@ -1,0 +1,87 @@
+.bubble-container {
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    width: 180px;
+    height: 180px;
+
+}
+
+.bubble-img {
+    position: absolute;
+    left: 0;
+    top:0;
+
+    opacity: 0.6;
+
+    width: 100%;
+    height: 100%;
+}
+
+.bubble-p {
+    text-decoration:none;
+
+    font-size: 25px;
+    word-spacing: 2px;
+    text-align: center;
+    font-weight: bold;
+
+    position: absolute; /*脱离文档流*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    margin: 0;
+
+    width: 120px;
+
+    color: black;
+}
+
+.bubble-icon {
+    position: absolute; /*脱离文档流*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+}
+
+.bubble-c1 {
+    left: 78%;
+    top: 25%;
+}
+
+.bubble-c2 {
+    left: 66%;
+    top: 49%;
+}
+
+.bubble-c3 {
+    left: 51%;
+    top: 66%;
+}
+
+.bubble-c4 {
+    left: 34%;
+    top: 74%;
+}
+.bubble-c5 {
+    left: 15%;
+    top: 75%;
+}
+
+.main-header {
+    color: white;
+    font-size: 50px;
+    position: absolute;
+}
+
+.mh-1 {
+    left: 10%;
+    top: 15%;
+}
+.mh-2 {
+    left: 10%;
+    top: 25%;
+}
