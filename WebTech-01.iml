@@ -20,5 +20,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="tomcat-api" level="project" />
+    <orderEntry type="library" name="vue.min" level="project" />
   </component>
 </module>

@@ -3,6 +3,7 @@
 <head>
     <link type="text/css" rel="stylesheet" href="resources/css/master.css"/>
     <link type="text/css" rel="stylesheet" href="resources/css/comment.css"/>
+    <script src="resources/js/vue.min.js"></script>
     <title>留言板-Web技术</title>
     <script>
         var MASTER_ID = 6;
@@ -16,25 +17,6 @@
                 "<label class=\"comment-reply\">回复</label></a>\n" +
                 "        <div class=\"comment-content\">" + content + "</div>\n" + extra +
                 "    </div>"
-        }
-        function sendComment() {
-            var nick = document.getElementById("nick").value;
-            var content = document.getElementById("content").value;
-            if (nick === "") {
-                document.getElementById("hint").innerHTML = "昵称不能为空";
-                return;
-            }
-            if (content === "") {
-                document.getElementById("hint").innerHTML = "内容不能为空";
-                return;
-            }
-            var extra = "";
-            if (targetID !== 0) extra = document.getElementById(targetID).outerHTML;
-            var dom = document.getElementById("master-container");
-            dom.innerHTML = getCommentHTML(nick, new Date(), ++MASTER_ID, content, extra) + dom.innerHTML;
-            cancel();
-            document.getElementById("hint").innerHTML = "";
-            document.getElementById("content").value = "";
         }
         function setTarget(id, name) {
             targetID = parseInt(id);
@@ -102,19 +84,50 @@
     </div>
 </div>
 
-<div class="comment-input-container">
+<div class="comment-input-container" id="input-container">
     <div class="form-div">
         <label for="nick" class="form-middle form-label">昵称</label>
-        <input id="nick" class="form-middle" />
-        <label class="comment-info form-middle" onclick="cancel()" id="target">发表新留言</label>
-        <label class="form-middle comment-info" style="color: red;" id="hint"></label>
+        <input id="nick" class="form-middle" v-model="nick" />
+        <label class="comment-info form-middle" onclick="cancel()" id="target">{{ target }}</label>
+        <label class="form-middle comment-info" style="color: red;" id="hint">{{ hint }}</label>
     </div>
     <div class="form-div">
         <label for="content" class="form-element form-label">内容</label>
-        <textarea id="content" class="form-element form-textarea" ></textarea>
+        <textarea id="content" class="form-element form-textarea" v-model="content"></textarea>
     </div>
-    <button onclick="sendComment()" class="form-button">发布</button>
+    <button v-on:click="sendComment" class="form-button">发布</button>
 </div>
+
+<script>
+    new Vue({
+        el: '#input-container',
+        data: {
+            nick: "",
+            content: "",
+            target: "发表新留言",
+            hint: ""
+        },
+        methods: {
+            sendComment: function () {
+                if (this.nick === "") {
+                    this.hint = "昵称不能为空";
+                    return;
+                }
+                if (this.content === "") {
+                    this.hint = "内容不能为空";
+                    return;
+                }
+                var extra = "";
+                if (targetID !== 0) extra = document.getElementById(targetID).outerHTML;
+                var dom = document.getElementById("master-container");
+                dom.innerHTML = getCommentHTML(this.nick, new Date(), ++MASTER_ID, this.content, extra) + dom.innerHTML;
+                cancel();
+                this.hint = "";
+                this.content = "";
+            }
+        }
+    })
+</script>
 
 </body>
 </html>

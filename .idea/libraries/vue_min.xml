@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="vue.min" type="kotlin.js">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/web/resources/js/vue.min.js" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
