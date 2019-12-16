@@ -9,7 +9,7 @@
             out.print("<tr><td>" + num + "</td><td class=\"left\">" + name +
                     "</td><td><a href=\"video-play.jsp?name=" + name +
                     "&&file=" + fileName + "\" class=\"link\" target=\"_blank\">观看</a> | <a href=\"resources/video/" + fileName +
-                    ".mp4\" class=\"link\">下载</a></td></tr>");
+                    ".mp4\" class=\"link\" download=\"" + name + ".mp4" + "\">下载</a></td></tr>");
         }
     %>
 </head>
