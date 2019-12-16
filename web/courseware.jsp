@@ -5,10 +5,10 @@
     <link type="text/css" rel="stylesheet" href="resources/css/master.css"/>
     <title>教学课件-Web技术</title>
     <%!
-        void outputTableRow(JspWriter out, int num, String name, String fileName, boolean open) throws IOException {
+        void outputTableRow(JspWriter out, int num, String name, String fileName, String storeName, boolean open) throws IOException {
             if (open) out.print("<tr><td>" + num + "</td><td class=\"left\">" + name +
-                    "</td><td><a href=\"resources/ppt/" + fileName +
-                    "\" class=\"link\">下载</a></td></tr>");
+                    "</td><td><a href=\"resources/ppt/" + storeName +
+                    "\" class=\"link\" download=\"" + fileName + "\">下载</a></td></tr>");
             else out.print("<tr><td>" + num + "</td><td class=\"left\">" + name +
                     "</td><td>本文件暂不支持下载</tr>");
         }
@@ -45,7 +45,8 @@
                     "网站的设计与建设13", "第14章 XML", "第15章 AJAX", "网站的设计与建设16",
                     "网站的设计与建设17 网站发布", "网站的设计与建设18", "网站的设计与建设19", "网站设计与建设-第20章 MySQL数据库",
                     "网站的设计与建设21", "网站的设计与建设22 odbc", "第23章（补充） JSON"};
-            for (int i = 0; i < 23; i++) outputTableRow(out, i + 1, nameList[i] + ".ppt", nameList[i] + ".ppt", i != 15);
+            for (int i = 0; i < 23; i++)
+                outputTableRow(out, i + 1, nameList[i] + ".ppt", nameList[i] + ".ppt", (i + 1) + ".ppt", i != 15);
         %>
         </tbody>
     </table>
